@@ -12,6 +12,7 @@
         android:layout_height="128dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
+        android:contentDescription="@string/deliver_it_logo"
         app:srcCompat="@drawable/logo_deliverit" />
 
     <TextView
@@ -30,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="190dp"
-        android:layout_marginLeft="235dp"
+        android:layout_marginStart="235dp"
         android:text="@string/app_name_2"
         android:textColor="@color/orange"
         android:textSize="24sp"
@@ -49,10 +50,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_login_name"
-        android:text="Sign In."
+        android:text="@string/sign_in"
         android:textColor="@color/black"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginBottom="20dp"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -62,10 +63,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_login_name"
-        android:text="Hi there! Nice to see you again."
+        android:text="@string/hi_there_nice_to_see_you_again"
         android:textColor="@color/black"
         android:layout_marginTop="110dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginBottom="20dp"
         android:textSize="14sp"
         android:id="@+id/login_form_title_description"
@@ -121,13 +122,13 @@
         android:layout_marginLeft="32dp"
         android:layout_marginTop="12dp"
         android:layout_marginRight="32dp"
-        android:text="Login" />
+        android:text="@string/login" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tv_contact_admin"
-        android:text="Forgot password?"
+        android:text="@string/forgot_password"
         android:layout_centerHorizontal="true"
         android:id="@+id/tv_forgot"
         />
@@ -135,7 +136,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact Administrator"
+        android:text="@string/contact_administrator"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
         android:id="@+id/tv_contact_admin"
