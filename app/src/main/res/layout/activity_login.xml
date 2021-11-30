@@ -77,6 +77,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/username"
+        app:boxCornerRadiusBottomEnd="30dp"
+        app:boxCornerRadiusBottomStart="30dp"
+        app:boxCornerRadiusTopEnd="30dp"
+        app:boxCornerRadiusTopStart="30dp"
         android:layout_marginTop="120dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
@@ -99,6 +103,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/password"
+        app:boxCornerRadiusBottomEnd="30dp"
+        app:boxCornerRadiusBottomStart="30dp"
+        app:boxCornerRadiusTopEnd="30dp"
+        app:boxCornerRadiusTopStart="30dp"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
@@ -113,16 +121,32 @@
             android:inputType="textPassword"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_below="@id/otf_password"
         android:layout_centerHorizontal="true"
+        app:cornerRadius="30dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="12dp"
         android:layout_marginRight="32dp"
         android:text="@string/login" />
+
+<!--    <Button-->
+<!--        android:id="@+id/login_button"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="64dp"-->
+<!--        android:layout_below="@id/otf_password"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:background="@drawable/btn_background"-->
+<!--        android:layout_marginLeft="32dp"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:layout_marginRight="32dp"-->
+<!--        android:text="@string/login" />-->
+
 
     <TextView
         android:layout_width="wrap_content"
