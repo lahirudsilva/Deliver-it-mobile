@@ -2,11 +2,13 @@ package com.typical_coderr.deliverit_mobile;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,7 +25,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.typical_coderr.deliverit_mobile.adapter.ShipmentAdapter;
+import com.typical_coderr.deliverit_mobile.model.DriverDetails;
 import com.typical_coderr.deliverit_mobile.model.Shipment;
+import com.typical_coderr.deliverit_mobile.service.DriverDetailsClient;
 import com.typical_coderr.deliverit_mobile.service.RetrofitClientInstance;
 import com.typical_coderr.deliverit_mobile.service.ShipmentClient;
 import com.typical_coderr.deliverit_mobile.util.AuthHandler;
@@ -48,11 +52,17 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
     private ShipmentAdapter shipmentAdapter;
     private String jwtToken;
 
+    private TextView mName;
+    private TextView mNoOfRides;
+
 
     private List<Shipment> shipments;
+    private DriverDetails driverDetails;
     private boolean resultsRetrieved;
+    private boolean driverResultsRetrieved;
 
     private ShipmentClient shipmentClient = RetrofitClientInstance.getRetrofitInstance().create(ShipmentClient.class);
+    private DriverDetailsClient driverDetailsClient = RetrofitClientInstance.getRetrofitInstance().create(DriverDetailsClient.class);
 
 
     @Override
@@ -95,25 +105,53 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
         //Setup shipment list
 
         resultsRetrieved = false;
+        driverResultsRetrieved = false;
         shipments = new ArrayList<>();
         recyclerView = findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         shipmentAdapter = new ShipmentAdapter(this, shipments, "driver", jwtToken, mProgressDialog);
         recyclerView.setAdapter(shipmentAdapter);
-        System.out.println(jwtToken);
+        mName = findViewById(R.id.driver_name);
+        mNoOfRides = findViewById(R.id.no_Of_Rides);
 
+
+        getDriverDetails();
         getAllShipmentsForDelivery();
 
         mDeliveryRides = findViewById(R.id.my_rides);
-        mDeliveryRides.setOnClickListener(new View.OnClickListener() {
+        mDeliveryRides.setOnClickListener(view -> startActivity(new Intent(DriverHomeActivity.this, ManageDeliveryRidesActivity.class)));
+
+
+    }
+
+    private void getDriverDetails() {
+        Call<DriverDetails> call = driverDetailsClient.getDriverDetails(jwtToken);
+
+        //Show progress
+        mProgressDialog.setMessage("setting user");
+        mProgressDialog.show();
+
+        call.enqueue(new Callback<DriverDetails>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
-            public void onClick(View view) {
-                setContentView(R.layout.activity_deliveries);
+            public void onResponse(Call<DriverDetails> call, Response<DriverDetails> response) {
+                driverDetails = response.body();
+                if (driverDetails != null){
+                    driverResultsRetrieved = true;
+                    mName.setText(String.valueOf("Hello "+driverDetails.getDriverFirstName())+"!");
+                    mNoOfRides.setText(String.valueOf(driverDetails.getNoOfRidesToGo()));
+                }else{
+                    Toast.makeText(DriverHomeActivity.this, "Name not found", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<DriverDetails> call, Throwable t) {
+
             }
         });
-
-
     }
 
     public void getAllShipmentsForDelivery() {
