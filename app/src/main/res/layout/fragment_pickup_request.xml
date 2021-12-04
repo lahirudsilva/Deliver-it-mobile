@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".pickupRequestFragment">
+    tools:context=".PickupRequestFragment">
 
     <TextView
         android:id="@+id/empty_pick_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="No pickup requests !"
+        android:visibility="gone"
         android:gravity="center"
         android:fontFamily="@font/poppins_regular"
         android:textStyle="bold"/>
@@ -18,7 +19,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pickup_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>

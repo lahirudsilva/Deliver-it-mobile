@@ -6,8 +6,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.typical_coderr.deliverit_mobile.deliveryRequestFragment;
-import com.typical_coderr.deliverit_mobile.pickupRequestFragment;
+import com.typical_coderr.deliverit_mobile.DeliveryRequestFragment;
+import com.typical_coderr.deliverit_mobile.WarehouseFragment;
+import com.typical_coderr.deliverit_mobile.PickupRequestFragment;
 
 /**
  * Created by Android Studio.
@@ -27,9 +28,11 @@ public class DeliveryFragmentAdapter extends FragmentStateAdapter {
         switch (position)
         {
             case 0:
-                return new pickupRequestFragment();
+                return new PickupRequestFragment();
             case 1:
-                return new deliveryRequestFragment();
+                return new WarehouseFragment();
+            case 2:
+                return new DeliveryRequestFragment();
             default: throw new IllegalArgumentException();
         }
 
@@ -38,6 +41,6 @@ public class DeliveryFragmentAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 }

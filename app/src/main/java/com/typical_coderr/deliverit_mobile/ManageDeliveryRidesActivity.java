@@ -1,8 +1,11 @@
 package com.typical_coderr.deliverit_mobile;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -15,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
@@ -154,40 +158,44 @@ public class ManageDeliveryRidesActivity extends AppCompatActivity implements Na
 
     }
 
-    private void getPickUpPackages() {
-        Call<List<Shipment>> call = shipmentClient.getPickupDeliveries(jwtToken);
 
-        //Show progress
-        mProgressDialog.setMessage("Loading pickup requests for today...");
-        mProgressDialog.show();
 
-        call.enqueue(new Callback<List<Shipment>>() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onResponse(Call<List<Shipment>> call, Response<List<Shipment>> response) {
-                pickShipments = response.body();
-                System.out.println(response);
-                System.out.println(response.body());
-                if (pickShipments != null) {
-                    resultsRetrieved = true;
-                    pickupDeliveryAdapter.setPickupShipments(pickShipments);
-//                    recyclerView.setVisibility(View.VISIBLE);
-//                    mEmptyView.setVisibility(View.GONE);
-                } else {
-                    Toast.makeText(ManageDeliveryRidesActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-//                    recyclerView.setVisibility(View.GONE);
-//                    mEmptyView.setVisibility(View.VISIBLE);
-                }
-                mProgressDialog.dismiss();
-            }
 
-            @Override
-            public void onFailure(Call<List<Shipment>> call, Throwable t) {
-                Toast.makeText(ManageDeliveryRidesActivity.this, "Something went wrong!" + t.toString(), Toast.LENGTH_SHORT).show();
-                mProgressDialog.dismiss();
-            }
-        });
-    }
+
+//    private void getPickUpPackages() {
+//        Call<List<Shipment>> call = shipmentClient.getPickupDeliveries(jwtToken);
+//
+//        //Show progress
+//        mProgressDialog.setMessage("Loading pickup requests for today...");
+//        mProgressDialog.show();
+//
+//        call.enqueue(new Callback<List<Shipment>>() {
+//            @RequiresApi(api = Build.VERSION_CODES.O)
+//            @Override
+//            public void onResponse(Call<List<Shipment>> call, Response<List<Shipment>> response) {
+//                pickShipments = response.body();
+//                System.out.println(response);
+//                System.out.println(response.body());
+//                if (pickShipments != null) {
+//                    resultsRetrieved = true;
+//                    pickupDeliveryAdapter.setPickupShipments(pickShipments);
+////                    recyclerView.setVisibility(View.VISIBLE);
+////                    mEmptyView.setVisibility(View.GONE);
+//                } else {
+//                    Toast.makeText(ManageDeliveryRidesActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+////                    recyclerView.setVisibility(View.GONE);
+////                    mEmptyView.setVisibility(View.VISIBLE);
+//                }
+//                mProgressDialog.dismiss();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Shipment>> call, Throwable t) {
+//                Toast.makeText(ManageDeliveryRidesActivity.this, "Something went wrong!" + t.toString(), Toast.LENGTH_SHORT).show();
+//                mProgressDialog.dismiss();
+//            }
+//        });
+//    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
