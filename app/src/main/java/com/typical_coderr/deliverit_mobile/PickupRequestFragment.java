@@ -1,14 +1,18 @@
 package com.typical_coderr.deliverit_mobile;
 
+import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,7 +35,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class pickupRequestFragment extends Fragment {
+public class PickupRequestFragment extends Fragment {
 
     private Context context;
     private RecyclerView recyclerView;
@@ -72,19 +76,12 @@ public class pickupRequestFragment extends Fragment {
         recyclerView.setAdapter(pickupDeliveryAdapter);
 //        mEmptyView = mEmptyView.findViewById(R.id.empty_pick_view);
 //
-//        if (pickShipments.isEmpty()) {
-//            recyclerView.setVisibility(View.GONE);
-//            mEmptyView.setVisibility(View.VISIBLE);
-//        } else {
-//            recyclerView.setVisibility(View.VISIBLE);
-//            mEmptyView.setVisibility(View.GONE);
-//        }
-        mEmptyView = (TextView) getView().findViewById(R.id.empty_pick_view);
 
+        mEmptyView = (TextView) getView().findViewById(R.id.empty_pick_view);
 
     }
 
-    private void getPickUpPackages() {
+    public void getPickUpPackages() {
         Call<List<Shipment>> call = shipmentClient.getPickupDeliveries(jwtToken);
 
         //Show progress
@@ -101,12 +98,11 @@ public class pickupRequestFragment extends Fragment {
                 if (pickShipments != null) {
                     resultsRetrieved = true;
                     pickupDeliveryAdapter.setPickupShipments(pickShipments);
-                }else if(pickupDeliveryAdapter.getItemCount() == 0){
-                    recyclerView.setVisibility(View.GONE);
-                    mEmptyView.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(pickShipments.isEmpty() ? View.GONE : View.VISIBLE);
+                    mEmptyView.setVisibility(pickShipments.isEmpty() ? View.VISIBLE : View.GONE);
 
-                }
-                else {
+
+                } else {
                     Toast.makeText(context, "Something went wrong", Toast.LENGTH_SHORT).show();
 
                 }
