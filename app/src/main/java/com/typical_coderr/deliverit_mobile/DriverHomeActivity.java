@@ -22,6 +22,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.typical_coderr.deliverit_mobile.adapter.ShipmentAdapter;
@@ -49,7 +50,11 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
 
     private RecyclerView recyclerView;
     private CardView mDeliveryRides;
+    private CardView mPastRides;
+    private CardView mProfile;
+    private SwipeRefreshLayout swipeRefreshLayout;
     private ShipmentAdapter shipmentAdapter;
+    private TextView mEmptyView;
     private String jwtToken;
 
     private TextView mName;
@@ -100,6 +105,9 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
         mActionBarDrawerToggle.syncState();
         mNavigationView.setNavigationItemSelectedListener(this);
 
+        mEmptyView = findViewById(R.id.empty_pick_view);
+
+
 
 
         //Setup shipment list
@@ -116,6 +124,8 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
         mNoOfRides = findViewById(R.id.no_Of_Rides);
 
 
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.my_deliveries);
+
         getDriverDetails();
         getAllShipmentsForDelivery();
 
@@ -123,6 +133,19 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
         mDeliveryRides.setOnClickListener(view -> startActivity(new Intent(DriverHomeActivity.this, ManageDeliveryRidesActivity.class)));
 
 
+        mPastRides = findViewById(R.id.past_rides);
+        mPastRides.setOnClickListener(view -> startActivity(new Intent(DriverHomeActivity.this, PastRidesActivity.class)));
+
+        mProfile = findViewById(R.id.view_profile);
+        mProfile.setOnClickListener(view -> startActivity(new Intent(DriverHomeActivity.this, UserProfileActivity.class)));
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                getAllShipmentsForDelivery();
+            }
+        });
     }
 
     private void getDriverDetails() {
@@ -141,15 +164,18 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
                     driverResultsRetrieved = true;
                     mName.setText(String.valueOf("Hello "+driverDetails.getDriverFirstName())+"!");
                     mNoOfRides.setText(String.valueOf(driverDetails.getNoOfRidesToGo()));
+
                 }else{
                     Toast.makeText(DriverHomeActivity.this, "Name not found", Toast.LENGTH_SHORT).show();
                 }
+                mProgressDialog.dismiss();
 
             }
 
             @Override
             public void onFailure(Call<DriverDetails> call, Throwable t) {
-
+                Toast.makeText(DriverHomeActivity.this, "Something went wrong!" + t.toString(), Toast.LENGTH_SHORT).show();
+                mProgressDialog.dismiss();
             }
         });
     }
@@ -171,6 +197,8 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
                 if (shipments != null) {
                     resultsRetrieved = true;
                     shipmentAdapter.setShipments(shipments);
+                    recyclerView.setVisibility(shipments.isEmpty() ? View.GONE : View.VISIBLE);
+                    mEmptyView.setVisibility(shipments.isEmpty() ? View.VISIBLE : View.GONE);
 
 
                 } else {

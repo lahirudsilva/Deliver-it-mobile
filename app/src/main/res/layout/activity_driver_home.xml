@@ -11,6 +11,8 @@
 
     <include layout="@layout/driver_home_content"/>
 
+
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -19,6 +21,7 @@
         app:menu="@menu/nav_menu_driver"
         app:headerLayout="@layout/nav_header_layout">
     </com.google.android.material.navigation.NavigationView>
+
 
 
 
