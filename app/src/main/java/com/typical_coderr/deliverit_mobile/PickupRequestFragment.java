@@ -15,10 +15,14 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +41,7 @@ import retrofit2.Response;
 
 public class PickupRequestFragment extends Fragment {
 
+    private SwipeRefreshLayout swipeRefreshLayout;
     private Context context;
     private RecyclerView recyclerView;
     private PickupDeliveryAdapter pickupDeliveryAdapter;
@@ -62,22 +67,33 @@ public class PickupRequestFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.context = getContext();
+
+        swipeRefreshLayout = (SwipeRefreshLayout) getView().findViewById(R.id.pickup_list);
         recyclerView = view.findViewById(R.id.pickup_recycler_view);
         //Check if authorization token is valid
         AuthHandler.validate(context, "driver");
+
 
         mProgressDialog = new ProgressDialog(context);
 
         //Retrieve JWT Token
         SharedPreferences sharedPreferences = context.getSharedPreferences("auth_preferences", Context.MODE_PRIVATE);
         jwtToken = "Bearer " + sharedPreferences.getString("auth_token", null);
-        getPickUpPackages();
+
         pickupDeliveryAdapter = new PickupDeliveryAdapter(context, pickShipments, "driver", jwtToken, mProgressDialog);
         recyclerView.setAdapter(pickupDeliveryAdapter);
 //        mEmptyView = mEmptyView.findViewById(R.id.empty_pick_view);
 //
-
+        getPickUpPackages();
         mEmptyView = (TextView) getView().findViewById(R.id.empty_pick_view);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                getPickUpPackages();
+            }
+        });
 
     }
 
@@ -116,4 +132,5 @@ public class PickupRequestFragment extends Fragment {
             }
         });
     }
+
 }

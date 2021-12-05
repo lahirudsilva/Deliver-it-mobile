@@ -8,6 +8,9 @@
     android:layout_marginRight="15dp"
     android:layout_marginBottom="5dp"
     android:clickable="true"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/black"
+    app:cardElevation="10dp"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="@color/black"
     app:cardCornerRadius="15dp">
@@ -59,22 +62,23 @@
                 android:layout_below="@id/_shipmentId"
                 android:layout_marginLeft="15dp"
                 android:padding="5dp"
-                android:text="DropOff Due: "
+                android:text="Destination : "
                 android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/arrival"
-                android:layout_width="match_parent"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/shipmentId"
                 android:layout_alignParentRight="true"
-                android:fontFamily="@font/poppins_regular"
                 android:layout_marginRight="30dp"
+                android:fontFamily="@font/poppins_regular"
                 android:gravity="right"
                 android:padding="5dp"
                 android:text="12-05-2021"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
+
         </RelativeLayout>
 
 

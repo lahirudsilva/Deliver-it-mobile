@@ -8,6 +8,9 @@
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/black"
+    app:cardElevation="5dp"
     app:cardBackgroundColor="@color/gray"
     app:cardCornerRadius="15dp"
     app:cardUseCompatPadding="true">
@@ -102,7 +105,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="left"
                 android:layout_weight="2"
-                android:src="@drawable/pick" />
+                android:src="@drawable/pick_package" />
 
             <LinearLayout
                 android:layout_width="300dp"
