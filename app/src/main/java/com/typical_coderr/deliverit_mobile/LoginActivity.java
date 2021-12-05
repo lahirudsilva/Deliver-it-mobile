@@ -101,9 +101,11 @@ public class LoginActivity extends AppCompatActivity {
                         Intent homePageIntent;
 
                         if(role.equals("customer")){
-                            homePageIntent = new Intent(LoginActivity.this, MainActivity.class);
-                        }else{
+                            homePageIntent = new Intent(LoginActivity.this, CustomerHomeActivity.class);
+                        }else if(role.equals("driver")) {
                             homePageIntent = new Intent(LoginActivity.this, DriverHomeActivity.class);
+                        }else{
+                            homePageIntent = new Intent(LoginActivity.this,SupervisorHomeActivity.class);
                         }
                         homePageIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(homePageIntent);
@@ -133,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if(role!=null){
             if(role.equals("customer")){
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, CustomerHomeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }else if (role.equals("driver")){
