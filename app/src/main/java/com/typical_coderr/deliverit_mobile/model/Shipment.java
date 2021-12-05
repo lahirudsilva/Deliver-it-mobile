@@ -5,13 +5,13 @@ import java.time.LocalDate;
 
 public class Shipment implements Serializable {
 
-    private String pickupLocation, dropOffLocation, senderEmail, receiverEmail, receiverContactNumber, size, status, createdAt, description, warehouseLocation, warehouseNumber, arrival;
+    private String pickupLocation, dropOffLocation, senderEmail, receiverEmail, receiverContactNumber, size, status, createdAt, description, warehouseLocation, warehouseNumber, arrival ,pickUp, senderContactNumber, senderFirstName, senderLastName, receiverName;
     private Integer shipmentId;
     private LocalDate pickUpDate, dropOffDate;
     private Double weight, estimatedPrice;
     private User user;
 
-    public Shipment(String pickupLocation, String dropOffLocation, String senderEmail, String receiverEmail, String receiverContactNumber, String size, String status, String createdAt, String description, String warehouseLocation, String warehouseNumber, String arrival, Integer shipmentId, LocalDate pickUpDate, LocalDate dropOffDate, Double weight, Double estimatedPrice, User user) {
+    public Shipment(String pickupLocation, String dropOffLocation, String senderEmail, String receiverEmail, String receiverContactNumber, String size, String status, String createdAt, String description, String warehouseLocation, String warehouseNumber, String arrival, String pickUp, String senderContactNumber, String senderFirstName, String senderLastName, String receiverName, Integer shipmentId, LocalDate pickUpDate, LocalDate dropOffDate, Double weight, Double estimatedPrice, User user) {
         this.pickupLocation = pickupLocation;
         this.dropOffLocation = dropOffLocation;
         this.senderEmail = senderEmail;
@@ -24,12 +24,28 @@ public class Shipment implements Serializable {
         this.warehouseLocation = warehouseLocation;
         this.warehouseNumber = warehouseNumber;
         this.arrival = arrival;
+        this.pickUp = pickUp;
+        this.senderContactNumber = senderContactNumber;
+        this.senderFirstName = senderFirstName;
+        this.senderLastName = senderLastName;
+        this.receiverName = receiverName;
         this.shipmentId = shipmentId;
         this.pickUpDate = pickUpDate;
         this.dropOffDate = dropOffDate;
         this.weight = weight;
         this.estimatedPrice = estimatedPrice;
         this.user = user;
+    }
+
+    public Shipment() {
+    }
+
+    public String getPickUp() {
+        return pickUp;
+    }
+
+    public void setPickUp(String pickUp) {
+        this.pickUp = pickUp;
     }
 
     public String getPickupLocation() {
@@ -174,5 +190,37 @@ public class Shipment implements Serializable {
 
     public void setArrival(String arrival) {
         this.arrival = arrival;
+    }
+
+    public String getSenderContactNumber() {
+        return senderContactNumber;
+    }
+
+    public void setSenderContactNumber(String senderContactNumber) {
+        this.senderContactNumber = senderContactNumber;
+    }
+
+    public String getSenderFirstName() {
+        return senderFirstName;
+    }
+
+    public void setSenderFirstName(String senderFirstName) {
+        this.senderFirstName = senderFirstName;
+    }
+
+    public String getSenderLastName() {
+        return senderLastName;
+    }
+
+    public void setSenderLastName(String senderLastName) {
+        this.senderLastName = senderLastName;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
     }
 }

@@ -1,16 +1,28 @@
 package com.typical_coderr.deliverit_mobile.model;
 
+import java.io.Serializable;
 import java.time.Instant;
 
-public class User {
-    private String email,firstName,lastName,password,userRole,contactNumber,city,jwtToken,warehouseId;
-    private Instant joinedOn;
+public class User implements Serializable {
+
+
+
+    private String email;
+    private String firstName;
+    private String lastName;
+    private String password;
+    private String contactNumber;
+    private String userRole;
+    private String joinedOn;
+    private String city;
+    private String warehouseId;
+    private String jwtToken;
 
     public User() {
 
     }
 
-    public User(String email, String firstName, String lastName, String password, String userRole, String contactNumber, String city, String jwtToken, String warehouseId, Instant joinedOn) {
+    public User(String email, String firstName, String lastName, String password, String userRole, String contactNumber, String city, String jwtToken, String warehouseId, String joinedOn) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -22,6 +34,9 @@ public class User {
         this.warehouseId = warehouseId;
         this.joinedOn = joinedOn;
     }
+
+
+
 
     public String getEmail() {
         return email;
@@ -95,11 +110,11 @@ public class User {
         this.warehouseId = warehouseId;
     }
 
-    public Instant getJoinedOn() {
+    public String getJoinedOn() {
         return joinedOn;
     }
 
-    public void setJoinedOn(Instant joinedOn) {
+    public void setJoinedOn(String joinedOn) {
         this.joinedOn = joinedOn;
     }
 }
