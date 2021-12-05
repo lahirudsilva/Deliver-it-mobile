@@ -92,7 +92,7 @@ public class ShipmentAdapter extends RecyclerView.Adapter<ShipmentAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ShipmentAdapter.ViewHolder holder, final int position) {
         holder.mShipment.setText(String.valueOf(filteredShipments.get(position).getShipmentId()));
-        holder.mArrivalDate.setText(String.valueOf(filteredShipments.get(position).getArrival()));
+        holder.mArrivalDate.setText(String.valueOf(filteredShipments.get(position).getDropOffLocation()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
