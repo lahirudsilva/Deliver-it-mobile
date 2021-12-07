@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="APPLICATION">
+        <menu>
+            <item
+                android:id="@+id/manage_deliveries"
+                android:title="Manage Deliveries" />
+            <item
+                android:id="@+id/manage_status"
+                android:title="My Status" />
+            <item
+                android:id="@+id/profile"
+                android:title="Profile" />
+        </menu>
+    </item>
+    <item android:title="ACCOUNT">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:title="logout" />
+        </menu>
+    </item>
+</menu>
