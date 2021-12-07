@@ -12,18 +12,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.typical_coderr.deliverit_mobile.model.User;
-import com.typical_coderr.deliverit_mobile.service.DriverDetailsClient;
 import com.typical_coderr.deliverit_mobile.service.RetrofitClientInstance;
 import com.typical_coderr.deliverit_mobile.service.UserClient;
 import com.typical_coderr.deliverit_mobile.util.AuthHandler;
+import com.typical_coderr.deliverit_mobile.util.NavHandler;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,7 +46,7 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
     private Button mSettingsBtn;
     private TextView mFirstName,mLastName,mEmail,mContact,mCity,mJoined;
 
-    private String jwtToken;
+    private String userRole,jwtToken;
     private boolean resultsRetrieved;
 
     private User user;
@@ -60,7 +60,7 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
         setContentView(R.layout.activity_user_profile);
 
         //Check if authorization token is valid
-        AuthHandler.validate(UserProfileActivity.this, "driver");
+        userRole = AuthHandler.validate(UserProfileActivity.this, "all");
 
         //Retrieve JWT Token
         SharedPreferences sharedPreferences = getSharedPreferences("auth_preferences", Context.MODE_PRIVATE);
@@ -71,7 +71,10 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
         mProgressDialog = new ProgressDialog(this);
+
 
 
         mFirstName = findViewById(R.id.user_firstName);
@@ -127,7 +130,8 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        return false;
+
+       return false;
     }
 
     @Override
