@@ -146,26 +146,26 @@
 <!--        android:layout_marginTop="12dp"-->
 <!--        android:layout_marginRight="32dp"-->
 <!--        android:text="@string/login" />-->
-
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_contact_admin"
-        android:text="@string/forgot_password"
+        android:layout_below="@+id/login_button"
+        android:text="Don't have an account? SignUp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/tv_forgot"
+        android:id="@+id/tv_Signup"
         />
 
+
+
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contact_administrator"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
         android:id="@+id/tv_contact_admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="32dp"
-        />
+        android:text="Forgot password?"
+        android:textColor="@color/black" />
 
 </RelativeLayout>
