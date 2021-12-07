@@ -57,7 +57,7 @@ public class SettingsActivity extends AppCompatActivity implements NavigationVie
         setContentView(R.layout.activity_settings);
 
         //Check if authorization token is valid
-        AuthHandler.validate(SettingsActivity.this, "driver");
+        AuthHandler.validate(SettingsActivity.this, "all");
 
         //Retrieve JWT Token
         SharedPreferences sharedPreferences = getSharedPreferences("auth_preferences", Context.MODE_PRIVATE);
