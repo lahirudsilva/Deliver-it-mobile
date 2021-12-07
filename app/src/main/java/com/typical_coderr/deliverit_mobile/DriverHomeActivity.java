@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,7 +57,7 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
     private String jwtToken;
 
     private TextView mName;
-    private TextView mNoOfRides;
+    private TextView mNoOfRides, mWarehouse;
 
 
     private List<Shipment> shipments;
@@ -122,6 +121,7 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
         recyclerView.setAdapter(shipmentAdapter);
         mName = findViewById(R.id.driver_name);
         mNoOfRides = findViewById(R.id.no_Of_Rides);
+        mWarehouse= findViewById(R.id.warehouse);
 
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.my_deliveries);
@@ -164,6 +164,7 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
                     driverResultsRetrieved = true;
                     mName.setText(String.valueOf("Hello "+driverDetails.getDriverFirstName())+"!");
                     mNoOfRides.setText(String.valueOf(driverDetails.getNoOfRidesToGo()));
+                    mWarehouse.setText(String.valueOf(driverDetails.getWarehouseLocation()));
 
                 }else{
                     Toast.makeText(DriverHomeActivity.this, "Name not found", Toast.LENGTH_SHORT).show();
