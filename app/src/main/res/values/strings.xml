@@ -11,4 +11,8 @@
     <string name="login">Login</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="contact_administrator">Contact Administrator</string>
+    <string name="open_nav_drawer">OPEN_NAV_BAR</string>
+    <string name="close_nav_drawer">CLOSE_NAV_BAR</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
