@@ -18,10 +18,8 @@ import com.typical_coderr.deliverit_mobile.model.Shipment;
 import com.typical_coderr.deliverit_mobile.service.RetrofitClientInstance;
 import com.typical_coderr.deliverit_mobile.service.ShipmentClient;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ShipmentAdapter extends RecyclerView.Adapter<ShipmentAdapter.ViewHolder> implements Filterable {
 
@@ -85,14 +83,33 @@ public class ShipmentAdapter extends RecyclerView.Adapter<ShipmentAdapter.ViewHo
     @Override
 
     public ShipmentAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.shipment_row, parent, false);
-        return new ViewHolder(view);
+
+        View view;
+        //drriver
+        if (userRole.equals("driver")){
+           view = LayoutInflater.from(context).inflate(R.layout.shipment_driver_row, parent, false);
+
+        }
+        //customer
+        else {
+            view = LayoutInflater.from(context).inflate(R.layout.shipments_customer_row, parent, false);
+        }
+        return new ShipmentAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ShipmentAdapter.ViewHolder holder, final int position) {
         holder.mShipment.setText(String.valueOf(filteredShipments.get(position).getShipmentId()));
-        holder.mArrivalDate.setText(String.valueOf(filteredShipments.get(position).getDropOffLocation()));
+        holder.mDestination.setText(String.valueOf(filteredShipments.get(position).getDropOffLocation()));
+
+        if(userRole.equals("driver")){
+
+            holder.mArrival.setText(String.valueOf(filteredShipments.get(position).getArrival()));
+        }
+
+        if(userRole.equals("customer")){
+            holder.mStatus.setText(String.valueOf(filteredShipments.get(position).getStatus()));
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,13 +155,15 @@ public class ShipmentAdapter extends RecyclerView.Adapter<ShipmentAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView mShipment, mArrivalDate;
+        TextView mShipment, mDestination ,mStatus,mArrival;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mShipment = itemView.findViewById(R.id.shipmentId);
-            mArrivalDate = itemView.findViewById(R.id.arrival);
+            mDestination = itemView.findViewById(R.id.arrival);
+            mStatus = itemView.findViewById(R.id.status);
+            mArrival = itemView.findViewById(R.id.drop_off);
         }
     }
 }
