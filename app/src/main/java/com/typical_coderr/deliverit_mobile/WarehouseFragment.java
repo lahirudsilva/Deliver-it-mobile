@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,7 @@ import retrofit2.Response;
 
 public class WarehouseFragment extends Fragment {
 
+    private SwipeRefreshLayout swipeRefreshLayout;
     private Context context;
     private RecyclerView recyclerView;
     private WarehouseDeliveryAdapter warehouseDeliveryAdapter;
@@ -58,6 +60,7 @@ public class WarehouseFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         this.context = getContext();
 
+        swipeRefreshLayout = (SwipeRefreshLayout) getView().findViewById(R.id.warehouse_list);
         recyclerView = view.findViewById(R.id.warehouse_recycler_view);
         //Check if authorization token is valid
         AuthHandler.validate(context, "driver");
@@ -73,6 +76,14 @@ public class WarehouseFragment extends Fragment {
 
 
         mEmptyView = (TextView) getView().findViewById(R.id.empty_pick_view);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(false);
+                getWarehousePackages();
+            }
+        });
     }
 
     private void getWarehousePackages() {

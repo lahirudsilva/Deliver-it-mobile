@@ -156,8 +156,8 @@ public class WarehouseDeliveryAdapter extends RecyclerView.Adapter<WarehouseDeli
                                     Toast.makeText(context, "Successfully Updated pickup!", Toast.LENGTH_SHORT).show();
 
 
-                                    Intent intent = new Intent(context, ManageDeliveryRidesActivity.class);
-                                    context.startActivity(intent);
+//                                    Intent intent = new Intent(context, ManageDeliveryRidesActivity.class);
+//                                    context.startActivity(intent);
                                 } else {
                                     try {
 
