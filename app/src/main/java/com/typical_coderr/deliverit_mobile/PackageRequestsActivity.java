@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -21,7 +20,7 @@ import com.typical_coderr.deliverit_mobile.util.AuthHandler;
  * Date: Mon
  * Time: 5:22 PM
  */
-public class PackageRequests extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class PackageRequestsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
@@ -36,7 +35,7 @@ public class PackageRequests extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_package_requests);
 
         //Check if authorization token is valid
-        AuthHandler.validate(PackageRequests.this, "supervisor");
+        AuthHandler.validate(PackageRequestsActivity.this, "supervisor");
 
         //Retrieve JWT Token
         SharedPreferences sharedPreferences = getSharedPreferences("auth_preferences", Context.MODE_PRIVATE);
