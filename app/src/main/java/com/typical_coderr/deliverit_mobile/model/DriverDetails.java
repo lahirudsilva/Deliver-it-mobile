@@ -9,27 +9,60 @@ public class DriverDetails implements Serializable {
     private String driverId;
     private String driverEmail;
     private String NIC;
+    private String idNumber;
     private String status;
     private Integer noOfRidesToGo;
     private String vehicleNumber;
     private String contactNumber;
     private String registeredOn;
+    private String town;
     private String warehouseLocation;
+    private String warehouseId;
     private User user;
 
-    public DriverDetails(String driverFirstName, String driverLastName, String driverId, String driverEmail, String NIC, String status, Integer noOfRidesToGo, String vehicleNumber, String contactNumber, String registeredOn, String warehouseLocation, User user) {
+    public DriverDetails() {
+    }
+
+    public DriverDetails(String driverFirstName, String driverLastName, String driverId, String driverEmail, String NIC, String idNumber, String status, Integer noOfRidesToGo, String vehicleNumber, String contactNumber, String registeredOn, String town, String warehouseLocation, String warehouseId, User user) {
         this.driverFirstName = driverFirstName;
         this.driverLastName = driverLastName;
         this.driverId = driverId;
         this.driverEmail = driverEmail;
         this.NIC = NIC;
+        this.idNumber = idNumber;
         this.status = status;
         this.noOfRidesToGo = noOfRidesToGo;
         this.vehicleNumber = vehicleNumber;
         this.contactNumber = contactNumber;
         this.registeredOn = registeredOn;
+        this.town = town;
         this.warehouseLocation = warehouseLocation;
+        this.warehouseId = warehouseId;
         this.user = user;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
+    }
+
+    public String getWarehouseId() {
+        return warehouseId;
+    }
+
+    public void setWarehouseId(String warehouseId) {
+        this.warehouseId = warehouseId;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public String getDriverFirstName() {

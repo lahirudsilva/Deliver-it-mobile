@@ -49,5 +49,27 @@
 
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <TextView
+            android:id="@+id/empty_pick_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/coordinator_layout"
+            android:fontFamily="@font/poppins_regular"
+            android:visibility="gone"
+            android:gravity="center"
+            android:text="No drivers"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/drivers_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/coordinator_layout"
+            android:orientation="vertical"
+            android:padding="20dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

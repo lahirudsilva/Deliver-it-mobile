@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:clickable="true"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/black"
+    app:cardElevation="5dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/gray"
+    app:cardCornerRadius="15dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+        <LinearLayout
+            android:id="@+id/driverID_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_driverId"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="DriverID :"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/driver_id"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_regular"
+                android:text="D000001" />
+
+
+
+                <TextView
+                    android:background="@color/white"
+                    android:id="@+id/driverStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Available"
+                    android:textColor="@color/green"
+                    android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/driver_name_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_driverName"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Name:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/driver_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Malon Malon" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/driver_email_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_driverEmail"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Email:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/driver_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="malon@gmail.com" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/driver_contact_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_driverContact"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Contact:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/driver_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="+0887967898" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/driver_town_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_driverTown"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Home town:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/driver_town"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Moratuwa" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/driver_warehouse_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_driverWarehouse"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Warehouse:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/driver_warehouse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Colombo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/driver_nic_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_driverNIC"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="NIC:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/driver_nic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="234234234v" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/driver_nic_vehicle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_driverVehicle"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Vehicle Number:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/driver_vehicle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="ABC-4567" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/_registeredOn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/registeredOn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:text="Dec, 23 2021"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
