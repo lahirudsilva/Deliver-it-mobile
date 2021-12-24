@@ -19,4 +19,10 @@ public interface TrackingClient {
 
     @GET("getAllTracking")
     Call<List<Tracking>> getAllTracking(@Header("Authorization") String jwtToken);
+
+    @GET("getAllOnGoingShipments")
+    Call<List<Tracking>> getAllOnGoingShipments(@Header("Authorization") String jwtToken);
+
+    @GET("getAllOnGoingShipmentsForAdmin")
+    Call<List<Tracking>> getAllOnGoingShipmentsForAdmin(@Header("Authorization") String jwtToken);
 }
