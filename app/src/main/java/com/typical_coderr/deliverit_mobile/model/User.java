@@ -18,6 +18,7 @@ public class User implements Serializable {
     private String warehouseId;
     private String jwtToken;
 
+
     public User() {
 
     }

@@ -4,6 +4,8 @@ import com.typical_coderr.deliverit_mobile.model.ChangePasswordRequest;
 import com.typical_coderr.deliverit_mobile.model.LoginCredentials;
 import com.typical_coderr.deliverit_mobile.model.User;
 
+import java.util.List;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -28,6 +30,9 @@ public interface UserClient {
     //change password
     @POST("auth/change-password")
     Call<ResponseBody> changePassword(@Header("Authorization") String token, @Body ChangePasswordRequest request);
+
+    @GET("getAllUsers")
+    Call<List<User>> getAllUsers(@Header("Authorization") String jwtToken);
 
 
 }
