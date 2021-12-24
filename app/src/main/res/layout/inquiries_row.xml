@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:clickable="true"
+    app:strokeColor="@color/black"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/gray"
+    app:cardCornerRadius="15dp"
+    app:cardUseCompatPadding="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <LinearLayout
+            android:id="@+id/trackId_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_trackId"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Inquiry ID:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/inquiry_Id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="#12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/shipmentId_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_shipmentId"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Shipment ID:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/inquiry_shipmentId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="#12" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/userId_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_usertId"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="From:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/inquiry_userId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:gravity="right"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Sachindra@gmail.com" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/_status_dec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/_message"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Message:"
+                android:textStyle="bold"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orange"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Driver has pickup your delivery."
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/created_at"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginBottom="10dp"
+                android:text="Dec, 23 2021"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
