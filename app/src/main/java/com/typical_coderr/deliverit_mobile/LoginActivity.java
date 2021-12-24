@@ -104,8 +104,10 @@ public class LoginActivity extends AppCompatActivity {
                             homePageIntent = new Intent(LoginActivity.this, CustomerHomeActivity.class);
                         }else if(role.equals("driver")) {
                             homePageIntent = new Intent(LoginActivity.this, DriverHomeActivity.class);
-                        }else{
+                        }else if(role.equals("supervisor")){
                             homePageIntent = new Intent(LoginActivity.this,SupervisorHomeActivity.class);
+                        }else {
+                            homePageIntent = new Intent(LoginActivity.this,AdminHomeActivity.class);
                         }
                         homePageIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(homePageIntent);
@@ -143,6 +145,15 @@ public class LoginActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
 
+            }else if (role.equals("supervisor")){
+                Intent intent = new Intent(LoginActivity.this, SupervisorHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+
+            }else if(role.equals("admin")){
+                Intent intent = new Intent(LoginActivity.this, AdminHomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         }
     }

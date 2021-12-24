@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="APPLICATION">
+        <menu>
+            <item android:title="Add Drivers" android:id="@+id/nav_add_driver"/>
+            <item android:title="On-going shipments" android:id="@+id/nav_on_going_shipment"/>
+            <item android:title="inquiries" android:id="@+id/nav_inquires"/>
+            <item android:title="Settings" android:id="@+id/nav_customer_profile"/>
+        </menu>
+    </item>
+    <item android:title="ACCOUNT">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:title="logout" />
+        </menu>
+    </item>
+</menu>
