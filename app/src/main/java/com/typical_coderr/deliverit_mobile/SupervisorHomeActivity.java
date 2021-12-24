@@ -7,12 +7,10 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,7 +52,7 @@ public class SupervisorHomeActivity extends AppCompatActivity implements Navigat
     private TextView mName, mWarehouse;
     private boolean resultsRetrieved;
 
-    private CardView mPackageRequests, mOn_Going, mInquires, mDrivers, mCustomers;
+    private CardView mPackageRequests, mOn_Going, mInquires, mDrivers, mProfile, mSettings;
 
     private String jwtToken;
     private User user;
@@ -118,7 +116,7 @@ public class SupervisorHomeActivity extends AppCompatActivity implements Navigat
 //        mCustomers = findViewById(R.id.customers);
 
         mPackageRequests = findViewById(R.id.package_requests);
-        mPackageRequests.setOnClickListener(view -> startActivity(new Intent(SupervisorHomeActivity.this, PackageRequests.class)));
+        mPackageRequests.setOnClickListener(view -> startActivity(new Intent(SupervisorHomeActivity.this, PackageRequestsActivity.class)));
 
         mOn_Going = findViewById(R.id.on_going);
         mOn_Going.setOnClickListener(view -> startActivity(new Intent(SupervisorHomeActivity.this, OnGoingShipmentsActivity.class)));
@@ -128,6 +126,12 @@ public class SupervisorHomeActivity extends AppCompatActivity implements Navigat
 
         mDrivers = findViewById(R.id.drivers);
         mDrivers.setOnClickListener(view -> startActivity(new Intent(SupervisorHomeActivity.this, AllDriversActivity.class)));
+
+        mSettings = findViewById(R.id.settings_supervisor);
+        mSettings.setOnClickListener(view -> startActivity(new Intent(SupervisorHomeActivity.this, SettingsActivity.class)));
+
+        mProfile = findViewById(R.id.profile);
+        mProfile.setOnClickListener(view -> startActivity(new Intent(SupervisorHomeActivity.this,UserProfileActivity.class)));
 
         userDetails();
     }
