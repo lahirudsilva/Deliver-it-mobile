@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputEditText mUsernameEditText, mPasswordEditText;
+    private TextView mSignUp;
     private MaterialButton mLoginButton;
     private ProgressDialog mProgressDialog;
 
@@ -55,6 +57,9 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+        mSignUp = findViewById(R.id.link_register);
+        mSignUp.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
 
 
 
