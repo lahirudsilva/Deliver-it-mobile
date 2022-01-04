@@ -19,6 +19,9 @@ public interface UserClient {
     @POST("auth/login")
     Call<User> login(@Body LoginCredentials loginCredentials);
 
+    @POST("register")
+    Call<ResponseBody> register( @Body User user);
+
     //get logged in user\
     @GET("getLoggedInUser")
     Call<User> loggedInUser(@Header("Authorization") String jwtToken);
