@@ -2,15 +2,56 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.typical_coderr.deliverit_mobile">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Deliveritmobile">
-        <activity
-            android:name=".MainActivity"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="${usesCleartextTraffic}">
+        <activity android:name=".PackageTrackingActivity"
+            android:parentActivityName=".CustomerHomeActivity"/>
+        <activity android:name=".CustomerDeliveryHistoryActivity"
+            android:parentActivityName=".CustomerHomeActivity"/>
+        <activity android:name=".CreatePackageActivity"
+            android:parentActivityName=".CustomerHomeActivity"/>
+        <activity android:name=".SettingsActivity"
+            android:parentActivityName=".UserProfileActivity"/>
+        <activity android:name=".UserProfileActivity"
+            android:parentActivityName=".DriverHomeActivity"/>
+        <activity android:name=".PastRidesActivity"
+            android:parentActivityName=".DriverHomeActivity"/>
+        <activity android:name=".ManageDeliveryRidesActivity"
+            android:parentActivityName=".DriverHomeActivity"/>
+        <activity android:name=".PackageRequestsActivity"
+            android:parentActivityName=".SupervisorHomeActivity"/>
+        <activity android:name=".OnGoingShipmentsActivity"
+            android:parentActivityName=".SupervisorHomeActivity"/>
+        <activity android:name=".InquiriesActivity"
+            android:parentActivityName=".SupervisorHomeActivity"/>
+        <activity android:name=".AllDriversActivity"
+            android:parentActivityName=".SupervisorHomeActivity"/>
+        <activity android:name=".AssignDriverActivity"
+            android:parentActivityName=".PackageRequestsActivity"/>
+        <activity android:name=".CustomerInquiryActivity"
+            android:parentActivityName=".CustomerHomeActivity"/>
+        <activity android:name=".ResponseInquiryActivity"
+            android:parentActivityName=".InquiriesActivity"/>
+        <activity android:name=".AddDriverActivity"
+            android:parentActivityName=".AdminHomeActivity"/>
+        <activity android:name=".AllCustomersActivity"
+            android:parentActivityName=".AdminHomeActivity"/>
+        <activity android:name=".AdminHomeActivity"/>
+        <activity android:name=".SupervisorHomeActivity"/>
+        <activity android:name=".DriverHomeActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".CustomerHomeActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

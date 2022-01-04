@@ -172,7 +172,7 @@ public class AssignDriverActivity extends AppCompatActivity implements Navigatio
                 shipment.setShipmentId(Integer.parseInt(Id));
                 shipment.setDriverID(driver_ids.get(drivers.indexOf(driverSelection)));
 
-                System.out.println("ssssssssssssssssssssssssssss"+shipment + pick_date + drop_date);
+//                System.out.println("ssssssssssssssssssssssssssss"+shipment + pick_date + drop_date);
 
                 Call<ResponseBody> call = driverDetailsClient.assignDriver(jwtToken, shipment);
 

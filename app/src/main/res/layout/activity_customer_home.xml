@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CustomerHomeActivity"
-    android:background="@drawable/ic_wave__6_"
     android:id="@+id/drawer_layout">
 
     <include layout="@layout/customer_home_content"/>
