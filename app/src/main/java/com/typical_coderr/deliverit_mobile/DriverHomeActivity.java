@@ -51,6 +51,7 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
     private CardView mDeliveryRides;
     private CardView mPastRides;
     private CardView mProfile;
+    private CardView mSchedule;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ShipmentAdapter shipmentAdapter;
     private TextView mEmptyView;
@@ -120,8 +121,9 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
         shipmentAdapter = new ShipmentAdapter(this, shipments, "driver", jwtToken, mProgressDialog);
         recyclerView.setAdapter(shipmentAdapter);
         mName = findViewById(R.id.driver_name);
-        mNoOfRides = findViewById(R.id.no_Of_Rides);
+//        mNoOfRides = findViewById(R.id.no_Of_Rides);
         mWarehouse= findViewById(R.id.warehouse);
+
 
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.my_deliveries);
@@ -138,6 +140,11 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
 
         mProfile = findViewById(R.id.view_profile);
         mProfile.setOnClickListener(view -> startActivity(new Intent(DriverHomeActivity.this, UserProfileActivity.class)));
+
+        mSchedule = findViewById(R.id.shipment_schedule_driver);
+        mSchedule.setOnClickListener(view -> startActivity(new Intent(DriverHomeActivity.this, ShipmentScheduleActivity.class)));
+
+        recyclerView.setOnClickListener(view -> startActivity(new Intent(DriverHomeActivity.this, ManageDeliveryRidesActivity.class)));
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -163,7 +170,8 @@ public class DriverHomeActivity extends AppCompatActivity implements NavigationV
                 if (driverDetails != null){
                     driverResultsRetrieved = true;
                     mName.setText(String.valueOf("Hello "+driverDetails.getDriverFirstName())+"!");
-                    mNoOfRides.setText(String.valueOf(driverDetails.getNoOfRidesToGo()));
+//                    mNoOfRides.setText(String.valueOf(driverDetails.getNoOfRidesToGo()));
+//                    System.out.println(driverDetails.getNoOfRidesToGo());
                     mWarehouse.setText(String.valueOf(driverDetails.getWarehouseLocation()));
 
                 }else{

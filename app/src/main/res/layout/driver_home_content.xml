@@ -192,7 +192,7 @@
             android:gravity="center">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/toggle_availability"
+                android:id="@+id/shipment_schedule_driver"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_margin="10dp"
@@ -214,14 +214,14 @@
                         android:layout_width="55dp"
                         android:layout_height="55dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/availablity" />
+                        android:background="@drawable/schedule" />
 
                     <TextView
-                        android:layout_width="75dp"
+                        android:layout_width="95dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
                         android:gravity="center"
-                        android:text="My status"
+                        android:text="My Schedule"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -286,24 +286,23 @@
             android:textSize="15dp"
             android:textStyle="bold" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="155dp"
-            app:cardCornerRadius="50dp"
-            app:cardBackgroundColor="@color/yellow"
-            android:layout_alignParentLeft="@id/delivery_title">
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="70dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="155dp"-->
+<!--            app:cardCornerRadius="50dp"-->
+<!--            android:layout_alignParentLeft="@id/delivery_title">-->
 
-            <TextView
-                android:id="@+id/no_Of_Rides"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:text="2" />
+<!--            <TextView-->
+<!--                android:id="@+id/no_Of_Rides"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="2" />-->
 
-        </androidx.cardview.widget.CardView>
+<!--        </androidx.cardview.widget.CardView>-->
     </RelativeLayout>
 
 
