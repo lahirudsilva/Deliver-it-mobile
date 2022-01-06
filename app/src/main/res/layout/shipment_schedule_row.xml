@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/gray"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true"
+    app:strokeColor="@color/black"
+    app:strokeWidth="1dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/icon_"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingLeft="275dp"
+                android:src="@drawable/ic_baseline_bookmark_24"
+                app:tint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ss_shipmentId_row"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="200">
+
+            <TextView
+                android:id="@+id/_shipmentId"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Shipment ID:"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ss_shipmentId"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="right"
+                android:text="#12"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/name_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="right"
+                android:text="From :"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ss_sender_name"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="60dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left"
+                android:text="Sacchindra Rodrigo"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/_name_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="right"
+                android:text="To :"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ss_receiver_name"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="60dp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left"
+                android:text="Lahiru De silva"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/drop_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_row"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="100"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:layout_weight="2"
+                android:src="@drawable/pick_package" />
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Pick Location"
+                    android:textColor="@color/black"
+                    android:textSize="9dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ss_s_user_address"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="229/8A, Colombo,Townhall."
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/dottedline" />
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pickup_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_row"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="100"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:layout_gravity="left"
+                android:layout_weight="2"
+                android:src="@drawable/drop_package" />
+
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="70dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Drop Location"
+                    android:textColor="@color/black"
+                    android:textSize="9dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ss_r_user_address"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="229/8A, Colombo,Townhall."
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:text="Comment"
+                android:textColor="@color/white"
+                android:textSize="9dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ss_about_package"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="Call when you will be near entrance"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/ss_drop_date"
+                android:layout_width="190dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:text="Nov, 23 2021"
+                android:textSize="12dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <!--            <ImageView-->
+
+            <!--                android:layout_width="60dp"-->
+            <!--                android:layout_height="25dp"-->
+            <!--                android:src="@drawable/price" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/cost"-->
+            <!--                android:layout_width="80dp"-->
+            <!--                android:layout_height="30dp"-->
+            <!--                android:text="Rs: 2002 /="-->
+            <!--                android:textStyle="bold"-->
+            <!--                android:textColor="@color/white"/>-->
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
