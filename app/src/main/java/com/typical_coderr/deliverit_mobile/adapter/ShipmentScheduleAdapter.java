@@ -134,7 +134,7 @@ public class ShipmentScheduleAdapter extends RecyclerView.Adapter<ShipmentSchedu
 
         //Change options with priority
         if (shipmentSchedule.getPriority().equals("high")) {
-            options = new CharSequence[] {"Set as normal", "Remove bookmark"};
+            options = new CharSequence[] {"Set as normal", "Remove From Schedule"};
             settablePriority = "normal";
         }
 

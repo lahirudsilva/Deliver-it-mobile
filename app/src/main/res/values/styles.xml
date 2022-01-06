@@ -31,6 +31,8 @@
     </style>
 
 
+
+
     <style name="Alert.Button.Positive" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="backgroundTint">@color/orange</item>
         <item name="rippleColor">@color/white</item>
@@ -47,6 +49,9 @@
         <item name="android:textSize">14sp</item>
         <item name="fontFamily">@font/poppins_regular</item>
     </style>
+
+
+
 
 
 

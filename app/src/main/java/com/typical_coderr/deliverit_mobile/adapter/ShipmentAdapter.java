@@ -171,9 +171,15 @@ public class ShipmentAdapter extends RecyclerView.Adapter<ShipmentAdapter.ViewHo
 
 
         MaterialAlertDialogBuilder option_builder = new MaterialAlertDialogBuilder(context, R.style.AlertDialogTheme );
-        option_builder.setTitle("Please select option");
+        option_builder.setMessage("Package " + "#" + shipment.getShipmentId());
         option_builder.setBackground(context.getResources().getDrawable(R.drawable.alert_dialog_bg, null));
-        option_builder.setNeutralButton("Add to Delivery Schedule",new DialogInterface.OnClickListener() {
+        option_builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        option_builder.setPositiveButton("Add to Schedule",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 //change selected category
@@ -231,7 +237,6 @@ public class ShipmentAdapter extends RecyclerView.Adapter<ShipmentAdapter.ViewHo
 //        final EditText descriptionBox = new EditText(context);
 //        descriptionBox.setHint("Description");
 //        layout.addView(descriptionBox);
-
         builder.setMessage("Package " + "#" + shipment.getShipmentId());
         builder.setBackground(context.getResources().getDrawable(R.drawable.alert_dialog_bg, null));
         builder.setNeutralButton("Assign Driver", new DialogInterface.OnClickListener() {

@@ -125,7 +125,7 @@ public class ShipmentScheduleActivity extends AppCompatActivity implements Navig
                     shipmentSchedule.setPriority(cursor.getString(cursor.getColumnIndex("priority")));
                     shipmentSchedule.setArrival(cursor.getString(cursor.getColumnIndex("arrival")));
                     shipmentSchedules.add(shipmentSchedule);
-                    System.out.println("sdsdsdw"+shipmentSchedule.getPriority());
+
                 }
                 cursor.moveToNext();
             }
