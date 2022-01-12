@@ -33,6 +33,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -139,6 +140,14 @@ public class AddDriverActivity extends AppCompatActivity implements NavigationVi
             //Validate user input
             if (TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(email) || TextUtils.isEmpty(contactNumber) || TextUtils.isEmpty(driverID) || TextUtils.isEmpty(hometown) || TextUtils.isEmpty(warehouseSelection) || TextUtils.isEmpty(nIC) || TextUtils.isEmpty(vehicleNo)) {
                 Toast.makeText(this, "Please enter valid input", Toast.LENGTH_SHORT).show();
+            }else if (!Pattern.matches("^(?:0|94|\\+94)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|912)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\\d)\\d{6}$", contactNumber)){
+                Toast.makeText(this, "Please enter valid contact Number", Toast.LENGTH_SHORT).show();
+            }else if(!Pattern.matches("\\S+@\\S+\\.\\S+", email)){
+                Toast.makeText(this, "Please enter Email address", Toast.LENGTH_SHORT).show();
+            }else if(!Pattern.matches("^[0-9]{9}[x|X|v|V]|[0-9]{12}", nIC)){
+                Toast.makeText(this, "Please enter a valid NIC", Toast.LENGTH_SHORT).show();
+            }else if(!Pattern.matches("^([a-zA-Z]{1,3}|((?!0*-)[0-9]{1,3}))-[0-9]{4}(?<!0{4})", vehicleNo)){
+                Toast.makeText(this, "Please enter a valid vehicle number", Toast.LENGTH_SHORT).show();
             } else {
 
                 //If user input is valid

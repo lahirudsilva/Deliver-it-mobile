@@ -23,6 +23,8 @@ import com.typical_coderr.deliverit_mobile.service.UserClient;
 
 import org.json.JSONObject;
 
+import java.util.regex.Pattern;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -92,10 +94,14 @@ public class RegisterActivity extends AppCompatActivity implements NavigationVie
 
         if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password) ||  TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(confirmPassword) || TextUtils.isEmpty(contact) || TextUtils.isEmpty(city)){
             Toast.makeText(this, "Please enter valid Credentials", Toast.LENGTH_SHORT).show();
+        }else if(!Pattern.matches("\\S+@\\S+\\.\\S+", email)){
+            Toast.makeText(this, "Please enter Email address", Toast.LENGTH_SHORT).show();
+        }else if(!Pattern.matches(".{5,}", password)){
+            Toast.makeText(this, "Password should contain at least 5 characters", Toast.LENGTH_SHORT).show();
         }else if(!TextUtils.equals(password, confirmPassword)){
             Toast.makeText(this, "Password do not match", Toast.LENGTH_SHORT).show();
-        }else if(TextUtils.getTrimmedLength(contact) > 10){
-            Toast.makeText(this, "Please enter valid Phone number", Toast.LENGTH_SHORT).show();
+        }else if (!Pattern.matches("^(?:0|94|\\+94)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|912)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\\d)\\d{6}$", contact)){
+            Toast.makeText(this, "Please enter valid contact Number", Toast.LENGTH_SHORT).show();
         }else {
 
 
