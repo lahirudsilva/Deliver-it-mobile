@@ -2,4 +2,6 @@
 
 # Deliverit
 
-![ alt text ](https://img.shields.io/badge/Android-4.0.0-6DB33F?style=for-the-badge&logo=Android)
+![ alt text ](https://img.shields.io/badge/Android-8.0-3DDC84?style=for-the-badge&logo=Android)
+
+![mobiles](https://user-images.githubusercontent.com/55289703/156987550-10ec43aa-179a-4197-a110-6a5168c43490.png)
