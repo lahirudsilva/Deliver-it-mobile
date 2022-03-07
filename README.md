@@ -2,4 +2,4 @@
 
 # Deliverit
 
-![ alt text ](https://img.shields.io/badge/SpringBoot-4.0.0-6DB33F?style=for-the-badge&logo=Springboot)
+![ alt text ](https://img.shields.io/badge/Android-4.0.0-6DB33F?style=for-the-badge&logo=Android)
